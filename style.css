@@ -2,7 +2,13 @@
 
 :root {
     --root-font-size: 20px;
+    --background-color-flavour: rgba(88, 191, 243, 0.3);
+    --font-color-nav: rgba(88, 191, 243, 0.7);
     font-size: var(--root-font-size);
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body {
@@ -18,23 +24,23 @@ body {
     grid-template-rows: minmax(100vh, auto) minmax(50vh, auto) auto minmax(30vh, auto) 10vh;
 }
 
-.hero > header,
-.skills > header,
-.projects > header,
-.contact > header {
+#hero > header,
+#skills > header,
+#projects > header,
+#contact > header {
     font-size: 2.5rem;
     font-weight: bold;
 }
 
-.hero,
-.skills, 
-.projects, 
-.contact {
+#hero,
+#skills, 
+#projects, 
+#contact {
     padding: 2rem;
 }
 
 
-.hero {
+#hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,33 +52,33 @@ body {
     color: white;
 }
 
-.hero > main {
+#hero > main {
     width: 50vw;
 }
 
-.hero > main > p {
+#hero > main > p {
     margin-bottom: 2rem;
     font-size: 1.5rem;
 }
 
-.skills {
-    background-color: rgba(0,0,0,0.1);
+#skills {
+    background-color: rgba(0,0,0,0.05);
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    padding: 2rem;
+    padding: 2rem 2rem 5rem 2rem;
 }
 
-.skills > header {
+#skills > header {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.skills > main {
+#skills > main {
     width: 75vw;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -80,32 +86,33 @@ body {
     justify-items: center;
 }
 
-.skills > main > section {
+#skills > main > div {
     display: flex;
     flex-direction: column;
 }
 
-.skills > main > section > ul {
+#skills > main > div > ul {
     margin: 0;
     padding-left: 1rem;
 }
 
-.projects {
+#projects {
     grid-column: 1;
     grid-row: 3 / 4;
     display: grid;
     grid-template-rows: 100px auto;
     gap: 2rem;
     justify-items: center;
+    margin-bottom: 3rem;
 }
 
-.projects > header {
+#projects > header {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.projects .projects-main {
+#projects #projects-main {
     width: 75vw;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -132,62 +139,63 @@ body {
     color: white;
 }
 
-.contact {
+#contact {
     grid-column: 1;
     grid-row: 4 / 5;
-    background-color: rgba(88, 191, 243, 0.3);
+    background-color: var(--background-color-flavour);
     display: grid;
     grid-template-rows: auto auto;
     gap: 0.5rem;
 }
 
-.contact > header {
+#contact > header {
     grid-row: 1 / 2;
 }
 
-.contact .contact-main {
+#contact #contact-main {
     grid-row: -2 / -1;
     display: grid;
     grid-template-columns: 8fr 2fr;
 }
 
-.contact .contact-main .contact-main-left {
+#contact #contact-main #contact-main-left {
     display: grid;
     grid-auto-rows: auto;
 }
 
-.contact-main-left .top {
+#contact-main-left .top {
     grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
 }
 
-.contact-main-left .top a {
+#contact-main-left .top a {
     color: rgba(0,0,0,0.5);
 }
 
-.contact-main-left .bottom {
+#contact-main-left .bottom {
     grid-row: 2 / 3;
     display: flex;
     gap: 0.5rem;
 }
 
-.contact-main-left .bottom .link a {
+#contact-main-left .bottom .link a {
     text-decoration: none; /* come back later */
 }
 
-.contact-main-left .bottom .link a img {
+#contact-main-left .bottom .link a img {
     width: 50px;
     height: 50px;
     transition: all 0.2s;
 }
 
-.contact-main-left .bottom .link a img:hover {
+#contact-main-left .bottom .link a img:hover {
     transform: scale(1.1);
 }
 
-.contact-main-right > img {
-    border: 0.5px solid rgba(255,255,255,0.2); 
+#contact-main-right > img {
+    border-style: none;
+    /* border: 0.5px solid rgba(255,255,255,0.2);  */
     width: 200px; /* come back later */
     height: 200px;
     border-radius: 50%;
@@ -280,56 +288,88 @@ body {
     overflow: hidden;
 }
 
+
+.nav {
+    position: fixed;
+    padding: 1rem;
+
+}
+
+.nav > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.nav > ul > li a {
+    text-decoration: none;
+    color: rgba(0,0,0,0.4);
+    transition: all 0.2s;
+}
+
+.nav > ul > li a:hover {
+    color: rgba(0,0,0,0.6);
+}
+
+.nav > ul > li.active a {
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--font-color-nav);
+}
+
 @media screen and (min-width: 750px) and (max-width: 1000px) {
-    .skills > main {
+    #skills > main {
         justify-items: start;
     }
 }
 
 @media screen and (min-width: 1px) and (max-width: 750px) {
-    .projects .projects-main {
+    #projects #projects-main {
         width: 90vw;
         grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
         gap: 1rem;
     }
 
-    .hero > main {
+    #hero > main {
         width: 90vw;
     }
 
-    .hero,
-    .skills, 
-    .projects, 
-    .contact {
+    #hero,
+    #skills, 
+    #projects, 
+    #contact {
         padding: 1rem;
     }
 
-    .skills > main {
+    #skills > main {
         width: 90vw;
         gap: 1rem;
         justify-items: start;
     }
 
-    .contact-main-right > img {
+    #contact-main-right > img {
         width: 100px;
         height: 100px;
     }
 }
 
 @media screen and (min-width: 1px) and (max-width: 400px) {
-    .contact .contact-main {
+    #contact #contact-main {
         grid-row: -2 / -1;
     }
 
-    .contact-main-left {
+    #contact-main-left {
         grid-row: 2 / 3;
     }
     
-    .contact-main-right {
+    #contact-main-right {
         grid-row: 1 / 2;
     }
 
-    .projects .projects-main {
+    #projects #projects-main {
         grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     }
 
@@ -338,8 +378,14 @@ body {
         display: none;
     }
 
-    .hero > main > p,
-    .skills {
+    #hero > main > p,
+    #skills {
         font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 1px) and (max-width: 1000px) {
+    nav {
+        display: none;
     }
 }

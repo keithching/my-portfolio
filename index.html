@@ -10,13 +10,13 @@
 </head>
 <body>
     <div class="container">
-        <section class="hero">
+        <section id="hero">
             <header>
-                about me
+                <h1>about me</h1>
             </header>
             <main>
                 <p>
-                    Hi there, I am Keith from Hong Kong.
+                    Hi there, my name is Keith.
                     I am an aspiring developer currently learning full-stack web developement in Code Chrysalis, Japan.
                     I am also a student studying in a Japanese language school in Tokyo.
                 </p>
@@ -35,12 +35,13 @@
                 </p>
             </main>
         </section>
-        <section class="skills">
+        <section id="skills">
             <header>
-                skills
+                <h2>skills</h2>
             </header>
             <main>
-                <section class="skills-programming">
+                <!-- container -->
+                <div class="skills-programming">
                     <h3>programming</h3>
                     <ul>
                         <li>Git</li>
@@ -51,8 +52,8 @@
                         <li>SQL</li>
                         <li>NodeJS</li>
                     </ul>
-                </section>
-                <section class="skills-language">
+                </div>
+                <div class="skills-language">
                     <h3>language</h3>
                     <ul>
                         <li>English - Business</li>
@@ -60,12 +61,14 @@
                         <li>Cantonese - Native</li>
                         <li>Japanese - Conversational</li>
                     </ul>
-                </section>
+                </div>
             </main>
         </section>
-        <section class="projects">
-            <header>projects</header>
-            <section class="projects-main">
+        <section id="projects">
+            <header>
+                <h2>projects</h2>
+            </header>
+            <div id="projects-main">
                 <article class="project">
                     <header>
                         Admin Dashboard
@@ -168,12 +171,14 @@
                         </p>
                     </main>
                 </article>
-            </section>
+            </div>
         </section>
-        <section class="contact">
-            <header>contacts</header>
-            <main class="contact-main">
-                <div class="contact-main-left">
+        <section id="contact">
+            <header>
+                contacts
+            </header>
+            <main id="contact-main">
+                <div id="contact-main-left">
                     <div class="top">
                         <p>My email address is <a href="mailto:keithching91@gmail.com">keithching91@gmail.com</a></p>
                         <p>I can also be reached via:</p>
@@ -196,8 +201,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-main-right">
-                    <img src="./asset/placeholder.JPG" alt="my photo">
+                <div id="contact-main-right">
+                    <img src="./asset/my-photo.jpeg" alt="my photo">
                 </div>
             </main>
         </section>
@@ -208,17 +213,26 @@
     
     <div class="modal">
         <div class="modal-content">
-          <div class="modal-header">
-            <div></div>
-            <div class="header-text">Credits</div>
-            <button id="close-modal">x</button>
-          </div>
-          <div class="divider"></div>
-          <div class="modal-main">
-              <a href="https://www.flaticon.com/free-icons/github" title="github icons">Github icons created by Pixel perfect - Flaticon</a>
-              <a href="https://www.flaticon.com/free-icons/twitter" title="twitter icons">Twitter icons created by Bogdan Rosu - Flaticon</a>
-              <a href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons">Linkedin icons created by Freepik - Flaticon</a>
-          </div>
+            <div class="modal-header">
+                <div></div>
+                <div class="header-text">Credits</div>
+                <button id="close-modal">x</button>
+            </div>
+            <div class="divider"></div>
+            <div class="modal-main">
+                <a href="https://www.flaticon.com/free-icons/github" title="github icons">Github icons created by Pixel perfect - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/twitter" title="twitter icons">Twitter icons created by Bogdan Rosu - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons">Linkedin icons created by Freepik - Flaticon</a>
+            </div>
         </div>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li class="hero active"><a href="#hero">about me</a></li>
+            <li class="skills"><a href="#skills">skills</a></li>
+            <li class="projects"><a href="#projects">projects</a></li>
+            <!-- <li class="contact"><a href="#contact">contacts</a></li> -->
+        </ul>
+    </nav>
 </body>
 </html>
