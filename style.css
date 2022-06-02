@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
+:root {
+    --root-font-size: 20px;
+    font-size: var(--root-font-size);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -10,42 +15,79 @@ body {
 
 .container {
     display: grid;
-    grid-template-rows: 100vh 50vh auto 30vh 10vh;
-    min-height: 100vh;
+    grid-template-rows: minmax(100vh, auto) minmax(50vh, auto) auto minmax(30vh, auto) 10vh;
 }
 
 .hero > header,
 .skills > header,
 .projects > header,
 .contact > header {
-    font-size: 50px;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
-section {
-    padding: 50px 300px;
+.hero,
+.skills, 
+.projects, 
+.contact {
+    padding: 2rem;
 }
+
 
 .hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 2rem;
     grid-column: 1;
     grid-row: 1 / 2;
     background-color: grey;
     color: white;
+}
 
+.hero > main {
+    width: 50vw;
 }
 
 .hero > main > p {
-    font-size: 30px;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
 }
 
 .skills {
     background-color: rgba(0,0,0,0.1);
-    font-size: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.skills > header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills > main {
+    width: 75vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.skills > main > section {
+    display: flex;
+    flex-direction: column;
+}
+
+.skills > main > section > ul {
+    margin: 0;
+    padding-left: 1rem;
 }
 
 .projects {
@@ -53,16 +95,25 @@ section {
     grid-row: 3 / 4;
     display: grid;
     grid-template-rows: 100px auto;
+    gap: 2rem;
+    justify-items: center;
+}
+
+.projects > header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .projects .projects-main {
+    width: 75vw;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
 }
 
 .project {
-    padding: 20px;
+    padding: 1rem;
     border-style: none;
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
@@ -74,7 +125,7 @@ section {
 }
 
 .project header {
-    font-size: 30px;
+    font-size: 1.5rem;
 }
 
 .project a {
@@ -87,7 +138,7 @@ section {
     background-color: rgba(88, 191, 243, 0.3);
     display: grid;
     grid-template-rows: auto auto;
-    gap: 10px;
+    gap: 0.5rem;
 }
 
 .contact > header {
@@ -118,7 +169,7 @@ section {
 .contact-main-left .bottom {
     grid-row: 2 / 3;
     display: flex;
-    gap: 10px;
+    gap: 0.5rem;
 }
 
 .contact-main-left .bottom .link a {
@@ -136,7 +187,6 @@ section {
 }
 
 .contact-main-right > img {
-    /* grid-row: 1 / -1; */
     border: 0.5px solid rgba(255,255,255,0.2); 
     width: 200px; /* come back later */
     height: 200px;
@@ -149,7 +199,7 @@ section {
     grid-column: 1;
     grid-row: -2 / -1;
     background-color: black;
-    color: white;
+    color: rgba(255, 255, 255, 0.7);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -160,10 +210,14 @@ section {
     cursor: pointer;
 }
 
+.footer #credits:hover {
+    color: white;
+}
+
 .modal {
     display: none;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 .modal.show {
@@ -176,7 +230,7 @@ section {
 
 .modal-content {
     background-color: white;
-    padding: 20px;
+    padding: 1rem;
     width: 50vh;
     height: 30vh;
     display: flex;
@@ -189,7 +243,7 @@ section {
 }
 
 .modal-header .header-text {
-    font-size: 30px;
+    font-size: 1.5rem;
 }
 
 #close-modal {
@@ -198,13 +252,13 @@ section {
     background-color: rgba(0,0,0,0.5);
     color: white;
     border-style: none;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
 }
 
 .divider {
-    margin: 5px 0;
-    border: 0.5px solid black;
+    margin: 1rem 0;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
 }
 
 .modal-main {
@@ -214,6 +268,7 @@ section {
     gap: 5px;
     align-items: center;
     justify-content: center;
+    font-size: 0.75rem;
 }
 
 .modal-main a {
@@ -225,3 +280,66 @@ section {
     overflow: hidden;
 }
 
+@media screen and (min-width: 750px) and (max-width: 1000px) {
+    .skills > main {
+        justify-items: start;
+    }
+}
+
+@media screen and (min-width: 1px) and (max-width: 750px) {
+    .projects .projects-main {
+        width: 90vw;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: 1rem;
+    }
+
+    .hero > main {
+        width: 90vw;
+    }
+
+    .hero,
+    .skills, 
+    .projects, 
+    .contact {
+        padding: 1rem;
+    }
+
+    .skills > main {
+        width: 90vw;
+        gap: 1rem;
+        justify-items: start;
+    }
+
+    .contact-main-right > img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media screen and (min-width: 1px) and (max-width: 400px) {
+    .contact .contact-main {
+        grid-row: -2 / -1;
+    }
+
+    .contact-main-left {
+        grid-row: 2 / 3;
+    }
+    
+    .contact-main-right {
+        grid-row: 1 / 2;
+    }
+
+    .projects .projects-main {
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    }
+
+    .project-description,
+    .project-tech-stack {
+        display: none;
+    }
+
+    .hero > main > p,
+    .skills {
+        font-size: 1rem;
+    }
+}
