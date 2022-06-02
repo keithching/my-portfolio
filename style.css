@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
 
 :root {
     --root-font-size: 20px;
@@ -255,6 +255,9 @@ body {
 }
 
 #close-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
     background-color: rgba(0,0,0,0.5);
@@ -316,7 +319,7 @@ body {
 
 .nav > ul > li.active a {
     font-weight: 500;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--font-color-nav);
 }
 
