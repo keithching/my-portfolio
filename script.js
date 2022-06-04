@@ -35,3 +35,16 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// back to top button event listener
+const backToTopBtn = document.getElementById('back-to-top-button');
+
+function handleScroll() {
+    const skillsDiv = document.getElementById('skills');
+    const footerDiv = document.querySelector('.footer');
+    if (scrollY >= skillsDiv.offsetTop / 4) { // personal touch
+        backToTopBtn.style.display = 'block';
+    } else backToTopBtn.style.display = 'none';
+}
+
+window.addEventListener('scroll', handleScroll);

@@ -3,7 +3,11 @@
 :root {
     --root-font-size: 20px;
     --background-color-flavour: rgba(88, 191, 243, 0.3);
-    --font-color-nav: rgba(88, 191, 243, 0.7);
+    --font-color-nav: rgba(88, 212, 243, 0.7);
+    --font-color-dark-primary: black;
+    --font-color-dark-secondary: rgba(0,0,0,0.6);
+    --font-color-light-primary: white;
+    --font-color-light-secondary: rgba(255,255,255,0.7);
     font-size: var(--root-font-size);
 }
 
@@ -21,7 +25,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-rows: minmax(100vh, auto) minmax(50vh, auto) auto minmax(30vh, auto) 10vh;
+    grid-template-rows: minmax(100vh, auto) minmax(50vh, auto) auto minmax(30vh, auto) auto 5vh;
 }
 
 #hero > header,
@@ -30,6 +34,7 @@ body {
 #contact > header {
     font-size: 2.5rem;
     font-weight: bold;
+    text-align: center;
 }
 
 #hero,
@@ -49,16 +54,39 @@ body {
     grid-column: 1;
     grid-row: 1 / 2;
     background-color: grey;
-    color: white;
+    color: var(--font-color-light-primary);
+}
+
+
+#hero .my-name {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
 }
 
 #hero > main {
     width: 50vw;
 }
 
+#hero > .divider {
+    border: 0.05px solid rgba(255,255,255,0.1);
+    width: 100%;
+    padding: 0;
+}
+
 #hero > main > p {
     margin-bottom: 2rem;
     font-size: 1.5rem;
+}
+
+#hero > main > p > a {
+    color: var(--font-color-dark-secondary);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+#hero > main > p > a:hover {
+    text-decoration: underline;
 }
 
 #skills {
@@ -96,6 +124,10 @@ body {
     padding-left: 1rem;
 }
 
+#skills > main > div > ul > li {
+    color: var(--font-color-dark-secondary);
+}
+
 #projects {
     grid-column: 1;
     grid-row: 3 / 4;
@@ -123,7 +155,7 @@ body {
     padding: 1rem;
     border-style: none;
     background-color: rgba(0, 0, 0, 0.6);
-    color: white;
+    color: var(--font-color-light-primary);
     transition: all 0.3s;
 }
 
@@ -146,6 +178,8 @@ body {
     display: grid;
     grid-template-rows: auto auto;
     gap: 0.5rem;
+    padding-bottom: 4rem;
+    
 }
 
 #contact > header {
@@ -155,7 +189,8 @@ body {
 #contact #contact-main {
     grid-row: -2 / -1;
     display: grid;
-    grid-template-columns: 8fr 2fr;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
 }
 
 #contact #contact-main #contact-main-left {
@@ -170,7 +205,7 @@ body {
 }
 
 #contact-main-left .top a {
-    color: rgba(0,0,0,0.5);
+    color: var(--font-color-dark-secondary);
 }
 
 #contact-main-left .bottom {
@@ -180,7 +215,7 @@ body {
 }
 
 #contact-main-left .bottom .link a {
-    text-decoration: none; /* come back later */
+    text-decoration: none;
 }
 
 #contact-main-left .bottom .link a img {
@@ -195,8 +230,7 @@ body {
 
 #contact-main-right > img {
     border-style: none;
-    /* border: 0.5px solid rgba(255,255,255,0.2);  */
-    width: 200px; /* come back later */
+    width: 200px; 
     height: 200px;
     border-radius: 50%;
     background-color: rgba(0,0,0,0.5);
@@ -207,7 +241,7 @@ body {
     grid-column: 1;
     grid-row: -2 / -1;
     background-color: black;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--font-color-light-secondary);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -219,7 +253,7 @@ body {
 }
 
 .footer #credits:hover {
-    color: white;
+    color: var(--font-color-light-primary);
 }
 
 .modal {
@@ -261,7 +295,7 @@ body {
     width: 30px;
     height: 30px;
     background-color: rgba(0,0,0,0.5);
-    color: white;
+    color: var(--font-color-light-primary);
     border-style: none;
     font-size: 1rem;
     cursor: pointer;
@@ -283,7 +317,7 @@ body {
 }
 
 .modal-main a {
-    color: rgba(0,0,0,0.5);
+    color: var(--font-color-dark-secondary);
 }
 
 .stop-scrolling {
@@ -309,18 +343,45 @@ body {
 
 .nav > ul > li a {
     text-decoration: none;
-    color: rgba(0,0,0,0.4);
+    color: var(--font-color-dark-secondary);
     transition: all 0.2s;
 }
 
 .nav > ul > li a:hover {
-    color: rgba(0,0,0,0.6);
+    color: var(--font-color-dark-primary);
+    font-weight: 500;
 }
 
 .nav > ul > li.active a {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.1rem;
     color: var(--font-color-nav);
+}
+
+.back-to-top-div {
+    background-color: transparent;
+    position: sticky;
+    bottom: 1rem;
+    display: flex;
+    justify-content: right;
+    padding: 1rem 0;
+}
+
+#back-to-top-button {
+    background-color: grey;
+    display: none;
+    position: relative;
+    right: 1rem;
+    padding: 0.5rem;
+    width: 60px;
+    height: 60px;
+    border-style: none;
+    border-radius: 100%;
+}
+
+#back-to-top-button a {
+    font-size: 1.5rem;
+    text-decoration: none;
 }
 
 @media screen and (min-width: 750px) and (max-width: 1000px) {
@@ -359,17 +420,23 @@ body {
     }
 }
 
-@media screen and (min-width: 1px) and (max-width: 400px) {
+@media screen and (min-width: 1px) and (max-width: 750px) {    
     #contact #contact-main {
         grid-row: -2 / -1;
     }
 
     #contact-main-left {
         grid-row: 2 / 3;
+        justify-self: center;
+    }
+
+    #contact-main-left .bottom {
+        justify-self: center;
     }
     
     #contact-main-right {
         grid-row: 1 / 2;
+        justify-self: center;
     }
 
     #projects #projects-main {
@@ -392,3 +459,4 @@ body {
         display: none;
     }
 }
+
