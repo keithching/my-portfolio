@@ -2,12 +2,17 @@
 
 :root {
     --root-font-size: 20px;
+    --background-color-main: rgb(49, 47, 47);
     --background-color-flavour: rgba(88, 191, 243, 0.3);
-    --font-color-nav: rgba(88, 212, 243, 0.7);
+    --background-color-light: white;
+    --background-color-dark: rgba(0,0,0,0.8);
+    --background-color-dark-hover: black;
+    --font-color-nav: rgb(88, 212, 243);
     --font-color-dark-primary: black;
     --font-color-dark-secondary: rgba(0,0,0,0.6);
     --font-color-light-primary: white;
     --font-color-light-secondary: rgba(255,255,255,0.7);
+    --font-color-flavour: rgb(88, 212, 243);
     font-size: var(--root-font-size);
 }
 
@@ -52,19 +57,48 @@ body {
     gap: 2rem;
     grid-column: 1;
     grid-row: 1 / 2;
-    background-color: grey;
+    background-color: var(--background-color-main);
     color: var(--font-color-light-primary);
 }
 
+#hero > header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-#hero .my-name {
+#hero > .my-intro {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#hero .my-intro .my-name {
+    font-size: 6rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 0;
+    margin:0;
+}
+
+#hero .my-intro .my-title {
     font-size: 2rem;
     font-weight: 500;
     text-align: center;
 }
 
-#hero > main {
-    width: 50vw;
+#hero .my-photo {
+    max-height: 500px;
+    max-width: 500px;
+}
+
+#hero .my-photo > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
 }
 
 #hero > .divider {
@@ -73,18 +107,29 @@ body {
     padding: 0;
 }
 
-#hero > main > p {
+#hero > main {
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+#hero > main > h1 {
+    font-size: 3rem;
+}
+
+#hero > main > article > p {
     margin-bottom: 2rem;
     font-size: 1.5rem;
 }
 
-#hero > main > p > a {
-    color: var(--font-color-dark-secondary);
+#hero > main > article > p > a {
+    color: var(--font-color-flavour);
     font-weight: 500;
     text-decoration: none;
 }
 
-#hero > main > p > a:hover {
+#hero > main > article > p > a:hover {
     text-decoration: underline;
 }
 
@@ -95,8 +140,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    padding: 2rem 2rem 5rem 2rem;
+    grid-template-rows: 150px auto;
+    /* gap: 2rem; */
+    padding: 2rem 2rem 2rem 2rem;
 }
 
 #skills > header {
@@ -105,17 +151,34 @@ body {
     justify-content: center;
 }
 
+#skills > header > h2 {
+    /* margin: 0; */
+}
+
 #skills > main {
     width: 75vw;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 2rem;
-    justify-items: center;
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); */
+    /* gap: 2rem; */
+    /* justify-items: center; */
+
+}
+
+#skills > main > div > h4 {
+    /* margin: 0; */
 }
 
 #skills > main > div {
     display: flex;
     flex-direction: column;
+}
+
+#skills > main > div > ul {
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    gap: 30px;
 }
 
 #skills > main > div > ul {
@@ -125,14 +188,30 @@ body {
 
 #skills > main > div > ul > li {
     color: var(--font-color-dark-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#skills > main > div > ul > li > i {
+    font-size: 3rem;
+}
+
+#skills > main > div > ul > li > span {
+    font-size: 1rem;
+}
+
+#skills .skills-language > ul > li {
+    font-size: 1rem;
 }
 
 #projects {
     grid-column: 1;
     grid-row: 3 / 4;
     display: grid;
-    grid-template-rows: 100px auto;
-    gap: 2rem;
+    grid-template-rows: 150px auto;
+    /* gap: 2rem; */
     justify-items: center;
     margin-bottom: 3rem;
 }
@@ -144,22 +223,117 @@ body {
 }
 
 #projects #projects-main {
-    width: 75vw;
+    width: 90vw;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: 2rem;
+}
+
+#projects-main .project {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 20px;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-info > header {
+    font-size: 2rem;
+}
+
+.project-tech-stack > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.project-tech-stack > ul > li {
+    background-color: var(--background-color-flavour);
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 0.5rem;
+}
+
+p.project-description {
+    color: var(--font-color-dark-secondary);
+}
+
+.project-links {
+    display: flex;
+    gap: 20px;
+}
+
+button.github-repo,
+button.demo-link {
+    padding: 15px 50px;
+    background-color: var(--background-color-light);
+    border: 1px solid var(--background-color-dark);
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+button.github-repo:hover,
+button.demo-link:hover {
+    border: 1px solid var(--background-color-dark-hover);
+    background-color: var(--background-color-dark-hover);
+}
+
+button.github-repo > a,
+button.demo-link > a {
+    text-decoration: none;
+}
+
+button.github-repo > a > span,
+button.demo-link > a > span {
+    color: var(--font-color-dark-primary);
+    font-size: 1rem;
+}
+
+button.github-repo:hover > a > span,
+button.demo-link:hover > a > span {
+    color: var(--font-color-light-primary);
+    font-size: 1rem;
+}
+
+.project-image {
+    /* flex: 0; */
+    display: flex;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    gap: 50px;
+    overflow: scroll;
+}
+
+.project-image > img {
+    border-radius: 20px;
+    width: 250px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.project-image > img.wide {
+    width: 500px;
 }
 
 .project {
     padding: 1rem;
     border-style: none;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: var(--font-color-light-primary);
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    color: var(--font-color-dark-primary);
     transition: all 0.3s;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 .project:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: rgba(0, 0, 0, 0.8); */
 }
 
 .project header {
@@ -167,7 +341,7 @@ body {
 }
 
 .project a {
-    color: white;
+    color: var(--font-color-dark-primary);
 }
 
 section.divider {
@@ -184,9 +358,8 @@ section.divider {
     background-color: var(--background-color-flavour);
     display: grid;
     grid-template-rows: auto auto;
-    gap: 0.5rem;
+    gap: 2rem;
     padding-bottom: 4rem;
-    
 }
 
 #contact > header {
@@ -197,7 +370,8 @@ section.divider {
     grid-row: -2 / -1;
     display: grid;
     grid-template-columns: auto auto;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    justify-content: center;
 }
 
 #contact #contact-main #contact-main-left {
@@ -209,6 +383,8 @@ section.divider {
     grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #contact-main-left .top a {
@@ -219,6 +395,8 @@ section.divider {
     grid-row: 2 / 3;
     display: flex;
     gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
 }
 
 #contact-main-left .bottom .link a {
@@ -247,7 +425,7 @@ section.divider {
 .footer {
     grid-column: 1;
     grid-row: -2 / -1;
-    background-color: rgba(0,0,0,0.8);
+    background-color: var(--background-color-dark);
     color: var(--font-color-light-secondary);
     display: flex;
     flex-direction: column;
@@ -256,7 +434,7 @@ section.divider {
 }
 
 .footer #credits {
-    cursor: pointer;
+    /* cursor: pointer; */
     font-size: 0.8rem;
 }
 
@@ -332,7 +510,13 @@ section.divider {
 
 .nav {
     position: fixed;
+    top: 0;
     padding: 1rem;
+    background-color: var(--background-color-main);
+    z-index: 1000;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 
 .nav > ul {
@@ -340,18 +524,19 @@ section.divider {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;   
 }
 
 .nav > ul > li a {
     text-decoration: none;
-    color: var(--font-color-dark-secondary);
+    color: var(--font-color-light-secondary);
     transition: all 0.2s;
 }
 
 .nav > ul > li a:hover {
-    color: var(--font-color-dark-primary);
+    color: var(--font-color-light-primary);
     font-weight: 500;
 }
 
@@ -394,6 +579,49 @@ section.divider {
 }
 
 @media screen and (min-width: 1px) and (max-width: 750px) {
+    #hero > header {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        /* justify-content: center; */
+        /* align-content: center; */
+        margin-top: 100px;
+        /* margin-bottom: 100px; */
+        place-content: center;
+    }
+
+    #hero > header > .my-intro {
+        grid-row: 2 / 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #hero .my-intro .my-name {
+        font-size: 4rem;
+        font-weight: 500;
+        text-align: center;
+    }
+    
+    #hero .my-intro .my-title {
+        font-size: 2rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    #hero > header > .my-photo {
+        grid-row: 1 / 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #hero > main {
+        grid-template-columns: 1fr;
+    
+    }
+
     #projects #projects-main {
         width: 90vw;
         grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -415,6 +643,16 @@ section.divider {
         width: 90vw;
         gap: 1rem;
         justify-items: start;
+    }
+
+    #projects #projects-main {
+        grid-template-columns: 1fr;
+    }
+
+    #projects-main .project {
+        /* display: grid; */
+        grid-template-columns: 1fr;
+        /* gap: 20px; */
     }
 
     #contact-main-right > img {
@@ -446,12 +684,12 @@ section.divider {
     }
 
     #projects #projects-main {
-        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+        /* grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); */
     }
 
     .project-description,
     .project-tech-stack {
-        display: none;
+        /* display: none; */
     }
 
     #hero > main > p,
