@@ -660,12 +660,11 @@ section.divider {
 
     #projects #projects-main {
         grid-template-columns: 1fr;
+        justify-content: center;
     }
 
     #projects-main .project {
-        /* display: grid; */
         grid-template-columns: 1fr;
-        /* gap: 20px; */
     }
 
     #contact-main-right > img {
