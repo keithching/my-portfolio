@@ -1,6 +1,9 @@
 # my-portfolio
 This is my portfolio project.
 
+## deployment
+https://keith-ng-pc.netlify.app/
+
 ## goals
 - serves as my portfolio page.
 - also for demonstration of my web dev experience
